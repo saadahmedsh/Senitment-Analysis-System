@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- mdb bootstrap -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"
+    ></script>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- OWL caoursel -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+
+    <!-- Tailwind css -->
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Required CSS Files -->
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/modal.css" />
+    <link rel="stylesheet" href="/static/css/login.css" />
+
+    <title>Home</title>
+  </head>
+  <body>
+    <!-- Modal Start -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <section class="vh-100" style="background-color: #9a616d">
+          <div class="container h-100">
+            <div
+              class="row d-flex justify-content-center align-items-center h-100"
+            >
+              <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem">
+                  <div class="row g-0">
+                    <div class="col-md-6 col-lg-5 d-none d-md-block">
+                      <img
+                        src="/static/images/analytics.PNG"
+                        alt="login form"
+                        class="img-fluid"
+                        style="border-radius: 1rem 0 0 1rem"
+                      />
+                    </div>
+                    <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                      <div class="card-body p-4 p-lg-5 text-black">
+                        <form>
+                          <div class="d-flex align-items-center mb-3 pb-1">
+                            <span class="h1 fw-bold mb-0">SentiLyzer</span>
+                          </div>
+
+                          <div
+                            id="email-alert"
+                            class="alert alert-danger"
+                            role="alert"
+                          ></div>
+
+                          <div class="form-outline mb-4">
+                            <input
+                              value=" "
+                              type="email"
+                              id="email"
+                              class="form-control form-control-lg"
+                            />
+                            <label class="form-label" for="email"
+                              >Email address</label
+                            >
+                          </div>
+
+                          <div class="form-outline mb-4">
+                            <input
+                              type="password"
+                              value=" "
+                              id="password"
+                              class="form-control form-control-lg"
+                            />
+                            <label class="form-label" for="password"
+                              >Password</label
+                            >
+                          </div>
+
+                          <div class="pt-1 mb-4">
+                            <button
+                              id="login-button"
+                              class="btn btn-dark btn-lg btn-block"
+                              type="button"
+                            >
+                              Login
+                            </button>
+                          </div>
+
+                          <a class="small text-muted" href="#!"
+                            >Forgot password?</a
+                          >
+                          <p class="mb-5 pb-lg-2" style="color: #393f81">
+                            Don't have an account?
+                            <a href="/register" style="color: #393f81"
+                              >Register here</a
+                            >
+                          </p>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Modal End -->
+    <!-- Nav start -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+      <div class="container-fluid">
+        <img
+          src="/static/images/logo.png"
+          alt=""
+          width="30"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
+        <a class="navbar-brand" href="#">SentiLyzer</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                ><i class="fa fa-home px-1" aria-hidden="true"></i>Home</a
+              >
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa fa-list-alt px-1" aria-hidden="true"></i>
+                Categories
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">CryptoCurrency</a></li>
+                <li><a class="dropdown-item" href="#">Politics</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Movies</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <li id="nav-icons" class="nav-item d-flex login-link">
+            <a class="nav-link" href="#" id="myBtn">
+              <i class="fa fa-sign-in px-1" aria-hidden="true"></i>
+              Login
+            </a>
+          </li>
+
+          <form class="d-flex" id="keyword_input">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search Keyword"
+              aria-label="Search"
+              id="keyword"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Nav End -->
+
+    <!-- Info start -->
+
+    <div class="tweet-info">
+      <div class="tweet-info-1">
+        <div class="tweet-info-11 mx-4">
+          <span class="heading" style="font-size: 2.5rem"
+            >Track, Measure, Analyze</span
+          >
+          <span class="heading_text" style="font-size: 1.5rem">
+            Grow Your Brand With the Most Robust Earned Media Suite Available
+          </span>
+        </div>
+      </div>
+
+      <div class="tweet-info-2">
+        <img
+          src="/static/images/tweet_3.PNG"
+          alt="twitter_tweets"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+
+    <!-- Info end -->
+
+    <hr />
+
+    <!-- Info start -->
+    <section class="text-gray-600 body-font">
+      <div class="px-5 py-24 mx-auto">
+        <div
+          class="
+            flex
+            items-center
+            lg:w-3/5
+            mx-auto
+            border-b
+            pb-10
+            mb-10
+            border-gray-200
+            sm:flex-row
+            flex-col
+          "
+        >
+          <div
+            class="
+              sm:w-32 sm:h-32
+              h-20
+              w-20
+              sm:mr-10
+              inline-flex
+              items-center
+              justify-center
+              rounded-full
+              bg-indigo-100
+              text-indigo-500
+              flex-shrink-0
+            "
+          >
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="sm:w-16 sm:h-16 w-10 h-10"
+              viewBox="0 0 24 24"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          </div>
+          <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">
+              Data Collection
+            </h2>
+            <p class="leading-relaxed text-base">
+              Data will be fetched real-time about a particular asset through a
+              selenium bot. You can specity the date of tweets as well.
+            </p>
+            <a class="mt-3 text-indigo-500 inline-flex items-center"
+              >Learn More
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div
+          class="
+            flex
+            items-center
+            lg:w-3/5
+            mx-auto
+            border-b
+            pb-10
+            mb-10
+            border-gray-200
+            sm:flex-row-reverse
+            flex-col
+          "
+        >
+          <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">
+              Data Cleaning
+            </h2>
+            <p class="leading-relaxed text-base">
+              Data will go through a rigorous cleaning process to make
+              classification process more efficient.
+            </p>
+            <a class="mt-3 text-indigo-500 inline-flex items-center"
+              >Learn More
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <div
+            class="
+              sm:w-32 sm:order-none
+              order-first
+              sm:h-32
+              h-20
+              w-20
+              sm:ml-10
+              inline-flex
+              items-center
+              justify-center
+              rounded-full
+              bg-indigo-100
+              text-indigo-500
+              flex-shrink-0
+            "
+          >
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="sm:w-16 sm:h-16 w-10 h-10"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="6" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path
+                d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col">
+          <div
+            class="
+              sm:w-32 sm:h-32
+              h-20
+              w-20
+              sm:mr-10
+              inline-flex
+              items-center
+              justify-center
+              rounded-full
+              bg-indigo-100
+              text-indigo-500
+              flex-shrink-0
+            "
+          >
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="sm:w-16 sm:h-16 w-10 h-10"
+              viewBox="0 0 24 24"
+            >
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">
+              Classification and Labelling
+            </h2>
+            <p class="leading-relaxed text-base">
+              Data be will be labeled as per the polarity provided by
+              Naive-Bayse classifier and stored in the database.
+            </p>
+            <a class="mt-3 text-indigo-500 inline-flex items-center"
+              >Learn More
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info end -->
+
+    <!-- Slider -->
+    <div class="slider">
+      <div class="blog-card">
+        <input type="radio" name="select" id="tap-1" checked />
+        <input type="radio" name="select" id="tap-2" />
+        <input type="radio" name="select" id="tap-3" />
+        <input type="checkbox" id="imgTap" />
+        <div class="sliders">
+          <label for="tap-1" class="tap tap-1"></label>
+          <label for="tap-2" class="tap tap-2"></label>
+          <label for="tap-3" class="tap tap-3"></label>
+        </div>
+        <div class="inner-part">
+          <label for="imgTap" class="img">
+            <img class="img-1" src="/static/images/bitcoin.jpg" />
+          </label>
+          <div class="content content-1">
+            <div class="title">Bitcoin</div>
+            <div class="text">
+              Bitcoin is a decentralized digital currency, without a central
+              bank or single administrator, that can be sent from user to user
+              on the peer-to-peer bitcoin network without the need for
+              intermediaries.
+            </div>
+            <button>Track Sentiments</button>
+          </div>
+        </div>
+        <div class="inner-part">
+          <label for="imgTap" class="img">
+            <img class="img-2" src="/static/images/spider.jpg" />
+          </label>
+          <div class="content content-2">
+            <div class="title">No Way Home</div>
+            <div class="text">
+              With Spider-Man's identity now revealed, our friendly neighborhood
+              web-slinger is unmasked and no longer able to separate his normal
+              life as Peter Parker from the high stakes of being a superhero.
+            </div>
+            <button>Track Sentiments</button>
+          </div>
+        </div>
+        <div class="inner-part">
+          <label for="imgTap" class="img">
+            <img class="img-3" src="/static/images/trump.jpg" />
+          </label>
+          <div class="content content-3">
+            <div class="title">Donald Trump</div>
+            <div class="text">
+              Donald John Trump (born June 14, 1946) is an American politician,
+              media personality, and businessman who served as the 45th
+              president of the United States from 2017 to 2021.
+            </div>
+            <button>Track Sentiments</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- slider end -->
+
+    <!-- tweet-info -->
+
+    <div class="tweet-info">
+      <div class="tweet-info-1">
+        <div class="tweet-info-11 mx-4">
+          <span class="heading">Measure your marketing / PR efforts</span>
+          <span class="heading_text">
+            Find out how many people mentioned your keyword and track
+            sentiments.
+          </span>
+        </div>
+        <div class="tweet-info-12 mx-4">
+          <span class="heading_2">Automated Scraping</span>
+          <span class="heading_text_2">
+            Data is updated prediocally so that you get up-to-date sentiments.
+          </span>
+        </div>
+        <div class="tweet-info-13 mx-4">
+          <span class="heading_3">Reliable</span>
+          <span class="heading_text_3">
+            Sentiments are calculated through highly-optimised algortihms so
+            that analysis is on point.
+          </span>
+        </div>
+      </div>
+
+      <div class="tweet-info-2">
+        <img
+          src="/static/images/tweet_2.PNG"
+          alt="twitter_tweets"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+
+    <!-- tweet info end -->
+
+    <hr />
+
+    <!-- tweet info 2 -->
+
+    <div class="tweet-info">
+      <div class="tweet-info-2">
+        <img
+          src="/static/images/tweets.PNG"
+          alt="twitter_tweets"
+          class="img-fluid"
+        />
+      </div>
+
+      <div class="tweet-info-1">
+        <div class="tweet-info-11">
+          <span class="heading">Improve customer satisfaction </span>
+          <span class="heading_text">
+            Track & engage online reviews, social media mentions, blogs, message
+            boards, news sites and much more.
+          </span>
+        </div>
+        <div class="tweet-info-12">
+          <span class="heading_2">Get to know your customers</span>
+          <span class="heading_text_2">
+            Learn what people like or dislike about your company to improve
+            communication
+          </span>
+        </div>
+        <div class="tweet-info-13">
+          <span class="heading_3">Engage customers online</span>
+          <span class="heading_text_3">
+            Access and engage online mentions to grow customer satisfaction.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- tweet info 2 end -->
+
+    <!-- Footer -->
+    <footer class="text-center text-white bg-transparent">
+      <!-- Grid container -->
+      <div class="container pt-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <!-- Twitter -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+          ></a>
+
+          <!-- Google -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+          ></a>
+
+          <!-- Instagram -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+          ></a>
+
+          <!-- Linkedin -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <!-- Github -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center text-dark p-3"
+        style="background-color: rgba(0, 0, 0, 0.2)"
+      >
+        © 2021 Copyright:
+        <a class="text-dark" href="https://localhost:8000">SentiLyzer</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    <!-- Footer end -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Handling login
+      document.getElementById("email-alert").style.display = "none";
+      document.getElementById("login-button").addEventListener("click", () => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8000/login_user", true);
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.onreadystatechange = function (response) {
+          if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            let response = JSON.parse(xhr.responseText);
+            if (response["exists"] == "False") {
+              document.getElementById("email-alert").innerHTML =
+                "User does not exist!";
+              document.getElementById("email-alert").style.display = "block";
+            } else if (response["exists"] == "Error") {
+              document.getElementById("email-alert").innerHTML =
+                "Some error occurred!";
+              document.getElementById("email-alert").style.display = "block";
+            } else {
+              var modal = document.getElementById("myModal");
+              modal.style.display = "none";
+              const str = ` 
+                <a class="nav-link" href="#" id="Profile">
+                  <i  class="fa fa-user px-1" aria-hidden="true"></i>
+                  Profile
+                </a>
+                <a class="nav-link" href="#" id="logout">
+                  <i  class="fa fa-sign-out px-1" aria-hidden="true"></i>
+                  Logout
+                </a>`;
+
+              document.getElementById("nav-icons").innerHTML = str;
+
+              localStorage.setItem("current-user", email);
+            }
+          }
+        };
+        xhr.send(`email=${email}&password=${password}`);
+      });
+
+      // Inserting keyword
+
+      document
+        .getElementById("keyword_input")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          keyword_value = document.getElementById("keyword").value;
+          var xhr = new XMLHttpRequest();
+          xhr.open(
+            "GET",
+            `http://localhost:8000/search/${keyword_value}`,
+            true
+          );
+          xhr.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+          );
+          xhr.onreadystatechange = function () {
+            if (
+              this.readyState === XMLHttpRequest.DONE &&
+              this.status === 200
+            ) {
+              let response=JSON.parse(xhr.responseText);
+              console.log(response['Inserting'])
+              if (response['Inserting'] == 'False'){
+                window.location.href=`http://localhost:8000/analytics/${keyword_value}`
+              }
+
+              if (response['Inserting'] == 'True'){
+                window.location.href=`http://localhost:8000/error`
+              }
+
+            }  
+              
+          };
+          xhr.send();
+        });
+    </script>
+
+    <script src="/static/scripts/server.js"></script>
+  </body>
+</html>
