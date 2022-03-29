@@ -153,11 +153,25 @@ def return_tweet_data(keyword):
 
     }]
 
+    pred=prediction_module(cumulative_polarity, tweet_date)
+    prediction_dates=pred[1]
+    prediction_polarity=[]
+
+    for i in range(0, len(prediction_dates)):
+        prediction_polarity.append(pred[0][i][0])
+
+    JSONprediction=[{
+        'dates':prediction_dates,
+        'polarity':prediction_polarity,
+    }]
+
+
     new_tweet=tweet()
     new_tweet.keyword=keyword
     new_tweet.since='2021-12-1'
     new_tweet.until='2021-12-8'
     new_tweet.keyword_data=JSONobject
+    new_tweet.prediction=JSONprediction
     new_tweet.save()
 
 

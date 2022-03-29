@@ -1,9 +1,11 @@
+from datetime import date
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import adfuller
 from pandas.tseries.offsets import DateOffset
 import statsmodels.api as sm
+from .models import *
 
 
 def adfuller_test(Polarity):
@@ -43,33 +45,7 @@ def prediction_module(polarity, dates):
     for i in range(1, 8):
         dates.append(str(future_dates[i].date().year) + '-' + str(future_dates[i].date().month) + '-' + str(future_dates[i].date().day))
 
- 
+    return forcasted_arr, dates
 
 
-
-
-# pol=[0.5363471810326514,
-#  2.9562884056784475,
-#  0.7488595009763165,
-#  2.1782376921138824,
-#  1.7533047264115083,
-#  3.2385441957005057,
-#  0.521788147178721,
-#  2.978622388984311]
-
-# date=['2021-10-01',
-#  '2021-10-02',
-#  '2021-10-03',
-#  '2021-10-04',
-#  '2021-10-05',
-#  '2021-10-06',
-#  '2021-10-07',
-#  '2021-10-08']
-
-
-
-
-
-
-# prediction_module(pol,date)
 
