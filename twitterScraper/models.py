@@ -11,6 +11,8 @@ class tweet(models.Model):
     since=models.CharField(max_length=50, default=' '), 
     until=models.CharField(max_length=50, default=' ')
     keyword_data=models.JSONField()
+
+    
     
 
 class user(models.Model):

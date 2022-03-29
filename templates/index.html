@@ -54,7 +54,7 @@
     <div id="myModal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
-        <section class="vh-100" style="background-color: #9a616d">
+        <!-- <section class="vh-100">
           <div class="container h-100">
             <div
               class="row d-flex justify-content-center align-items-center h-100"
@@ -85,7 +85,7 @@
 
                           <div class="form-outline mb-4">
                             <input
-                              value=" "
+                              value=""
                               type="email"
                               id="email"
                               class="form-control form-control-lg"
@@ -98,7 +98,7 @@
                           <div class="form-outline mb-4">
                             <input
                               type="password"
-                              value=" "
+                              value=""
                               id="password"
                               class="form-control form-control-lg"
                             />
@@ -134,7 +134,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
       </div>
     </div>
 
@@ -192,7 +192,7 @@
             </li>
           </ul>
           <li id="nav-icons" class="nav-item d-flex login-link">
-            <a class="nav-link" href="#" id="myBtn">
+            <a class="nav-link" href="/login" id="myBtn">
               <i class="fa fa-sign-in px-1" aria-hidden="true"></i>
               Login
             </a>
@@ -659,7 +659,7 @@
 
     <script>
       // Handling login
-      document.getElementById("email-alert").style.display = "none";
+     /* document.getElementById("email-alert").style.display = "none";
       document.getElementById("login-button").addEventListener("click", () => {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
@@ -701,7 +701,7 @@
           }
         };
         xhr.send(`email=${email}&password=${password}`);
-      });
+      });*/
 
       // Inserting keyword
 
@@ -711,6 +711,7 @@
           event.preventDefault();
           keyword_value = document.getElementById("keyword").value;
           var xhr = new XMLHttpRequest();
+   
           xhr.open(
             "GET",
             `http://localhost:8000/search/${keyword_value}`,

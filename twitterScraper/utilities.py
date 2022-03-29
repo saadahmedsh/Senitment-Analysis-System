@@ -7,6 +7,7 @@ from textblob import TextBlob
 from Scweet.scweet import scrape
 from .models import *
 from datetime import datetime, timedelta
+from twitterScraper.prediction import prediction_module
 
 
 def clean_text(text):
@@ -42,7 +43,10 @@ def return_tweet_data(keyword):
     week_ago = now - timedelta(days=7)
     previous=week_ago.strftime("%y-%m-%d")
 
-    data = scrape(words=[keyword], since='2021-12-1', until='2021-12-8', from_account=None, interval=1, headless=True, display_type="Top", save_images=False, lang="en",
+    today = '20' + today
+    previous = '20' + previous
+
+    data = scrape(words=[keyword], since=previous, until=today, from_account=None, interval=1, headless=True, display_type="Top", save_images=False, lang="en",
                   resume=False, filter_replies=False, proximity=False)
 
     # Cleaning data

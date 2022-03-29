@@ -15,6 +15,9 @@ urlpatterns = [
     path('analytics/<str:keyword>', views.analytics, name='analytics'),
     path('analyze/<str:keyword>', views.get_keyword, name='get_keyword'),
     path('error', views.return_error_page, name='get_error'),
+
+  
+  
     
 
 ]
