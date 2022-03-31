@@ -28,9 +28,59 @@
     <!-- Custom styles for this template-->
     <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
 
+
+    <style>
+        .forcast:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .modal-dialog{
+            max-width: 900px !important;
+        }
+    </style>
+
 </head>
 
 <body id="page-top" onload="fetch_data()">
+
+
+    <!-- Modal for prediction -->
+
+
+
+    <!-- Modal end -->
+    <div class="modal fade" id="predictionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Forcasted Sentiment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Cumulative Polarity </span></h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area d-flex justify-content-center">
+                            <!-- <canvas id="myAreaChart">
+                             
+                            </canvas> -->
+                            <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div> -->
+                            <canvas id="myLineChartPrediction" style="max-width:80%"></canvas>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+
+            </div>
+       
+          </div>
+        </div>
+      </div>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -159,7 +209,7 @@
                             <!-- Area Chart -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Cumulative Polarity</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Cumulative Polarity <span class="forcast" data-toggle="modal" data-target="#predictionModal" id="forcast_polarity">(View Forcast)</span></h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area d-flex justify-content-center">
@@ -374,7 +424,31 @@ var myBarChart = new Chart('myBarChart', {
 
 
 
-
+var forcast_button=document.getElementById('forcast_polarity').addEventListener('click', ()=>{
+    var dates=data['prediction'][0]['dates']
+    var polarity=data['prediction'][0]['polarity']
+    
+    new Chart("myLineChartPrediction", {
+        type: "line",
+        data: {
+          labels: dates,
+          datasets: [{
+            fill: false,
+            lineTension: 0,
+            backgroundColor: "rgba(0,0,255,1.0)",
+            borderColor: "rgba(0,0,255,0.1)",
+            data: polarity
+          }]
+        },
+        options: {
+          legend: {display: false},
+          scales: {
+            yAxes: [{ticks: {min: 0, max:10}}],
+          }
+        }
+  
+      });
+})
 
 
   

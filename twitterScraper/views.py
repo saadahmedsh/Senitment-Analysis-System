@@ -51,9 +51,10 @@ def get_keyword(request, keyword):
         keyword=keyword.lower()
         qs=tweet.objects.filter(keyword=keyword)
         data=json.loads(serializers.serialize('json', qs))
-        return JsonResponse({'data': data[0]['fields']['keyword_data']}, safe=False)
+        return JsonResponse({'data': data[0]['fields']['keyword_data'], 'prediction':data[0]['fields']['prediction'],}, safe=False)
     else:
         return HttpResponse('Some Error Occured!')
+
         
 
 def login_page(request):
